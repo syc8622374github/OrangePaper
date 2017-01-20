@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_foot_loading">正在加载</string>
+    <string name="text_foot_error">错误</string>
+    <string name="text_foot_end">已经到底</string>
+    <string name="card_title">测试Card的title应该是很长的文本</string>
+</resources>

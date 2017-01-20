@@ -6,4 +6,25 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="progressbar_size">22dp</dimen>
+    <dimen name="tv_to_progressbar_margin">4dp</dimen>
+    <dimen name="viewstub_height">60dp</dimen>
+    <dimen name="dialog_padding">24dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="card_elevation_static">2dp</dimen>
+    <dimen name="card_elevation_selected">8dp</dimen>
+    <dimen name="card_radius_default">2dp</dimen>
+    <dimen name="text_spacing_default">8dp</dimen>
+    <dimen name="card_spacing_default_half">4dp</dimen>
+    <dimen name="card_title_size_24sp">24sp</dimen>
+
+    <dimen name="card_context_size_10sp">10sp</dimen>
+    <dimen name="card_context_size_12sp">12sp</dimen>
+    <dimen name="card_context_size_14sp">14sp</dimen>
+    <dimen name="card_context_size_16sp">16sp</dimen>
+    <dimen name="card_context_size_18sp">18sp</dimen>
+    <dimen name="card_context_size_20sp">20sp</dimen>
 </resources>

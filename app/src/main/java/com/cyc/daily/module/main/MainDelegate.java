@@ -44,7 +44,7 @@ public class MainDelegate extends AppDelegate {
                 activity, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) rootView.findViewById(R.id.nav_view);
+        NavigationView navigationView = get(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -70,10 +70,16 @@ public class MainDelegate extends AppDelegate {
                 return true;
             }
         });
+
     }
 
     @Override
     public int getRootLayoutId() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    public int getOptionsMenuId() {
+        return R.menu.main;
     }
 }

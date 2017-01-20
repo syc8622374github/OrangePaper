@@ -3,7 +3,6 @@ package com.cyc.daily.module.main;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cyc.daily.R;
@@ -28,13 +27,6 @@ public class MainActivity extends BaseActivity<MainDelegate> {
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
     }
 
     @Override

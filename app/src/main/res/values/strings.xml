@@ -5,4 +5,8 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="url_image_general">http://img.hb.aicdn.com/%s_fw320sf</string>
+    <string name="url_image_big">http://img.hb.aicdn.com/%s_fw658</string>
+    <string name="url_image_small">http://img.hb.aicdn.com/%s_sq75sf</string>
 </resources>

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.cyc.daily.R;
+import com.cyc.daily.module.huaban.HuaBanMainFragment;
 import com.cyc.mvp.view.AppDelegate;
 
 /**
@@ -70,7 +71,11 @@ public class MainDelegate extends AppDelegate {
                 return true;
             }
         });
-
+        HuaBanMainFragment huaBanMainFragment = HuaBanMainFragment.newInstance();
+        ((MainActivity) activity).getSupportFragmentManager().
+                beginTransaction()
+                .add(R.id.container_with_refresh, huaBanMainFragment)
+                .show(huaBanMainFragment).commit();
     }
 
     @Override

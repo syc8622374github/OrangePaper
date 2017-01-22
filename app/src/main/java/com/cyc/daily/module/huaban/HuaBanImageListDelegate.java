@@ -1,8 +1,6 @@
 package com.cyc.daily.module.huaban;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -13,6 +11,7 @@ import android.view.View;
 import com.cyc.daily.R;
 import com.cyc.daily.adapter.HeaderAndFooterRecyclerViewAdapter;
 import com.cyc.daily.api.HuaBanApi;
+import com.cyc.daily.module.huaban.adapter.RecyclerHuaBanAdapter;
 import com.cyc.daily.module.huaban.bean.ListPinsBean;
 import com.cyc.daily.module.huaban.bean.PinsMainEntity;
 import com.cyc.daily.util.AuthUtils;
@@ -38,7 +37,7 @@ public class HuaBanImageListDelegate extends AppDelegate {
     private RecyclerView recyclerView;
     private int mMaxId = 0;
     private String mKey;
-    private RecyclerPinsHeadCardAdapter mAdapter;
+    private RecyclerHuaBanAdapter mAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private StaggeredGridLayoutManager staggeredGridLayoutManager;
     private LoadingFooter mFooterView;
@@ -78,29 +77,16 @@ public class HuaBanImageListDelegate extends AppDelegate {
     }
 
     private void initRecyclerView() {
-        mAdapter = new RecyclerPinsHeadCardAdapter(recyclerView);
+        mAdapter = new RecyclerHuaBanAdapter(recyclerView);
         HeaderAndFooterRecyclerViewAdapter headAdapter = new HeaderAndFooterRecyclerViewAdapter(mAdapter);
-        mAdapter.setOnClickItemListener(new RecyclerPinsHeadCardAdapter.OnAdapterListener() {
+        mAdapter.setOnClickItemListener(new RecyclerHuaBanAdapter.OnHuaBanOnAdapterListener() {
             @Override
-            public void onClickImage(PinsMainEntity bean, View view) {
-                Intent intent = new Intent(context,HuaBanImageDetailActivity.class);
-                intent.putExtra("data",bean);
-                context.startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(activity,view,
-                        bean.getFile().getKey()).toBundle());
+            public void onItemImageClickListener(View view, Object itemBean, int position) {
+                System.out.println("11111111111111111111");
             }
 
             @Override
-            public void onClickTitleInfo(PinsMainEntity bean, View view) {
-
-            }
-
-            @Override
-            public void onClickInfoGather(PinsMainEntity bean, View view) {
-
-            }
-
-            @Override
-            public void onClickInfoLike(PinsMainEntity bean, View view) {
+            public void onItemClickListener(View view, Object itemBean, int position) {
 
             }
         });

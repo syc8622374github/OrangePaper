@@ -18,6 +18,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter   {
     protected Context mContext;
     protected List<T> mList =new ArrayList<>();
     protected int mAdapterPosition = 0;
+    protected OnAdapterListener mListener;
     /*protected final String mUrlSmallFormat;//小图地址
     protected final String mUrlGeneralFormat;//普通地址
     protected final String mUrlBigFormat;//大图地址*/
@@ -49,12 +50,13 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter   {
         this.mAdapterPosition = mAdapterPosition;
     }
 
+    public void setOnClickItemListener(OnAdapterListener mListener) {
+        this.mListener = mListener;
+    }
+
     public BaseRecyclerAdapter(RecyclerView mRecyclerView) {
         this.mRecyclerView = mRecyclerView;
         this.mContext=mRecyclerView.getContext();
-        /*this.mUrlSmallFormat = mContext.getResources().getString(R.string.url_image_small);
-        this.mUrlGeneralFormat = mContext.getResources().getString(R.string.url_image_general);
-        this.mUrlBigFormat = mContext.getResources().getString(R.string.url_image_big);*/
     }
 
     @Override

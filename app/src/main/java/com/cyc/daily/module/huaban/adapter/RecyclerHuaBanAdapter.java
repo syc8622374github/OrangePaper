@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.cyc.daily.R;
 import com.cyc.daily.adapter.BaseRecyclerAdapter;
 import com.cyc.daily.module.huaban.bean.PinsMainEntity;
@@ -58,7 +59,7 @@ public class RecyclerHuaBanAdapter extends BaseRecyclerAdapter<PinsMainEntity> {
         ViewHolderGeneral viewHolder = (ViewHolderGeneral) holder;//强制类型转换 转成内部的ViewHolder
 
         onBindData(viewHolder, bean);
-        onBindListener(viewHolder, bean,position);//初始化点击事件
+        onBindListener(viewHolder, bean, position);//初始化点击事件
     }
 
     private void onBindData(final ViewHolderGeneral holder, PinsMainEntity bean) {
@@ -94,7 +95,12 @@ public class RecyclerHuaBanAdapter extends BaseRecyclerAdapter<PinsMainEntity> {
 
         float ratio = Util.getAspectRatio(bean.getFile().getWidth(), bean.getFile().getHeight());
         //Drawable dProgressImage = CompatUtils.getTintListDrawable(mContext, R.drawable.ic_toys_black_48dp, R.color.refresh_progress_1);
-        Glide.with(mContext).load(url_img).centerCrop().crossFade().into(holder.img_card_image);
+        Glide.with(mContext).load(url_img)
+                .centerCrop()
+                .crossFade(0)
+                .placeholder(R.mipmap.ic_launcher)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.img_card_image);
         bean.setLink(url_img);
     }
 
@@ -128,15 +134,15 @@ public class RecyclerHuaBanAdapter extends BaseRecyclerAdapter<PinsMainEntity> {
         viewHolder.img_card_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mListener instanceof  OnHuaBanOnAdapterListener){
-                    ((OnHuaBanOnAdapterListener)mListener).onItemImageClickListener(viewHolder.img_card_image,itemBean,position);
+                if (mListener instanceof OnHuaBanOnAdapterListener) {
+                    ((OnHuaBanOnAdapterListener) mListener).onItemImageClickListener(viewHolder.img_card_image, itemBean, position);
                 }
             }
         });
     }
 
-    public interface OnHuaBanOnAdapterListener extends OnAdapterListener{
-        void onItemImageClickListener(View view,Object itemBean,int position);
+    public interface OnHuaBanOnAdapterListener extends OnAdapterListener {
+        void onItemImageClickListener(View view, Object itemBean, int position);
     }
 
     public static class ViewHolderGeneral extends RecyclerView.ViewHolder {

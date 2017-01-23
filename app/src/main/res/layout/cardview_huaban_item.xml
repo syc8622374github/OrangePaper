@@ -27,9 +27,8 @@
             <ImageView
                 android:id="@+id/img_card_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxHeight="2000dp"
-                android:maxWidth="2000dp"/>
+                android:layout_height="200dp"
+                android:scaleType="fitXY"/>
 
             <ImageButton
                 android:id="@+id/ibtn_card_gif"
